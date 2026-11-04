@@ -68,13 +68,7 @@ function Navbar({ darkMode, setDarkMode }) {
 
         {/* Right Actions */}
         <div className="hud-actions">
-          <button
-            className="hud-theme-toggle"
-            onClick={() => setDarkMode(!darkMode)}
-            title="Toggle Theme"
-          >
-            {darkMode ? "☀️" : "🌙"}
-          </button>
+          
 
           <a href="#contact" className="hud-cta-button">
             <span>Let's Talk</span>
@@ -981,15 +975,9 @@ function Footer() {
   );
 }
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
-
   return (
-    <div className={`app ${darkMode ? "" : "light"}`}>
-      <Navbar
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
-      />
-
+    <div className="app">
+      <Navbar />
       <main>
         <Hero />
         <About />
@@ -999,7 +987,6 @@ function App() {
         <Experience />
         <Contact />
       </main>
-
       <Footer />
     </div>
   );
