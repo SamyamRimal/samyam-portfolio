@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next"
 import "./App.css";
 
 
