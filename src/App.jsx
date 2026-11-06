@@ -10,7 +10,7 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Certificates", href: "#certifications" },
-  { label: "Projects", href: "#projects" },
+  ...(showProjects ? [{ label: "Projects", href: "#projects" }] : []),
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
@@ -942,7 +942,9 @@ function Footer() {
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#certifications">Certificates</a></li>
-            <li><a href="#projects">Projects</a></li>
+            {showProjects && <li><a href="#projects">Projects</a></li>}
+            <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
 
@@ -976,20 +978,22 @@ function Footer() {
   );
 }
 function App() {
+  // Set to true in the future when you are ready to display your projects!
+  const showProjects = false;
+
   return (
     <div className="app">
-      <Navbar />
+      <Navbar showProjects={showProjects} />
       <main>
         <Hero />
         <About />
         <Skills />
         <Certifications />
-        <Projects />
+        {showProjects && <Projects />}
         <Experience />
         <Contact />
       </main>
-      <Footer />
-      <Analytics />
+      <Footer showProjects={showProjects} />
     </div>
   );
 }
